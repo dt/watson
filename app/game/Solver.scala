@@ -4,8 +4,10 @@ object Solver {
   type Step = Game => Game
 
   def apply(maxSteps: Int)(g: Game): Game = {
+    g.board.checkValid
     if (maxSteps > 0) {
       val stepped = all(g)
+      stepped.board.checkValid
       //println(stepped.board)
       if (makingProgress(g, stepped))
         apply(maxSteps -1)(stepped)

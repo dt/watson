@@ -3,12 +3,17 @@ package game
 case class Board(rows: IndexedSeq[Row]) {
   def apply(i: Int) = rows(i)
   def apply(x: Int, y: Int) = rows(x)(y)
-  def columns = IndexedSeq(0 to 5:_*)
+  def columns = six
   def isSolved = rows.forall(_.isSolved)
   def unsolved = rows.map(_.unsolved).sum
   def cells = rows.flatMap(_.cells)
 
-  def answer(row: Int, col: Int, choice: Choice) = Board(rows.updated(row, rows(row).answer(col, choice)))
+  def checkValid = if (debugging){ rows.foreach(_.checkValid); this} else this
+
+  def answer(row: Int, col: Int, choice: Choice) =
+    Board(rows.updated(row, rows(row).answer(col, choice))).checkValid
+
+  def unanswer(row: Int, col: Int) = Board(rows.updated(row, rows(row).unanswer(col)))
   def dismiss(row: Int, col: Int, choice: Choice*) = Board(rows.updated(row, rows(row).dismiss(col, choice:_*)))
   def dismissNot(row: Int, not: Set[Int], choice: Choice) = Board(rows.updated(row, rows(row).dismissNot(not, choice)))
 
@@ -25,8 +30,8 @@ case class Board(rows: IndexedSeq[Row]) {
 }
 
 object Board {
-  private def six(f: => Row) = Board((0 until 6).map(_ => f))
-  def full = six(Row.full)
-  def empty = six(Row.empty)
-  def random = six(Row.random)
+  private def sixTimes(f: => Row) = Board(six.map(_ => f))
+  def full = sixTimes(Row.full)
+  def empty = sixTimes(Row.empty)
+  def random = sixTimes(Row.random)
 }

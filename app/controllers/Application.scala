@@ -8,7 +8,11 @@ object Application extends Controller {
 
   def index = Action {
     val answered = Game(Board.random)
-    val game = Desolver(10)(answered)
-    Ok(views.html.index(game))
+    try {
+      val game = Desolver(10)(answered)
+      Ok(views.html.index(game))
+    } catch {
+      case c: Contradiction => { println("original: \n" + answered.board); throw c }
+    }
   }
 }

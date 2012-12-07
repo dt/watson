@@ -7,7 +7,20 @@ case class Row(cells: IndexedSeq[Cell]) {
 
   def isSolved = cells.forall(_.isInstanceOf[Answered])
 
+  def checkValid = if (debugging) {
+    val s = cells.foldLeft(Map.empty[Choice, Int]){
+      case (m, Answered(x)) => m.updated(x, m.getOrElse(x, 0) + 1)
+      case (m, _) => m
+    }
+    s.find(_._2 > 1).foreach { i =>
+      throw new IllegalStateException("duplicate value: %s in %s".format(i._1, this))
+    }
+    this
+  } else this
+
   def unsolved = cells.collect{case Unanswered(l) => l.size; case _ => 0}.sum
+
+  def hasAnAnswer = cells.exists(_.isInstanceOf[Answered])
 
   def col(x: Choice): Option[Int] = cells.indexWhere(_ == Answered(x)) match {
     case -1 => None
@@ -22,6 +35,17 @@ case class Row(cells: IndexedSeq[Cell]) {
       case Unanswered(l) => Unanswered(l.filterNot(_ == choice))
     })
   }
+
+  def unanswer(col: Int) = cells(col) match {
+    case Answered(x) => Row(cols.map(i => cells(i) match {
+      case _ if i == col => Unanswered.all
+      case Unanswered(l) => Unanswered((x :: l).sorted)
+      case x => x
+    }))
+    case _ => throw new IllegalArgumentException("can't unanswer an unanswered cell")
+  }
+
+
 
   def dismiss(col: Int, choice: Choice*) = Row(cells.updated(col, cells(col) match {
     case Unanswered(l) if l.exists(choice.contains) => Unanswered(l.filterNot(choice.contains))

@@ -8,20 +8,23 @@ object ClueSolver {
     val buff: mutable.Set[SameCol] = mutable.Set(game.sameCol: _*)
 
     def consume(board: Board, c: SameCol): Board = {
-      def killClue(wrapped: => Board) = { buff.remove(c); wrapped}
+      def killClue(wrapped: => Board) = { buff.remove(c); wrapped.checkValid}
+      board.checkValid
       board.columns.foldLeft(board){ case (b, col) =>
         (b(c.above.row)(col), b(c.below.row)(col)) match {
           case (Answered(x), Answered(y)) if x == c.above.choice && y == c.below.choice =>
             killClue(b)
           case (Answered(x), Answered(y)) if x == c.above.choice || y == c.below.choice =>
-            Contradiction(b, c)
+            throw new Contradiction(b, c, "no room to solve in col %d: above %d: %s below %d: %s".format(col, c.above.row, x, c.below.row, y))
 
           case (Answered(p), Unanswered(l)) if p == c.above.choice =>
-            if (l.contains(c.below.choice)) killClue(b.answer(c.below.row, col, c.below.choice))
-              else Contradiction(board, c)
+            if (l.contains(c.below.choice)) killClue(b.answer(c.below.row, col, c.below.choice)) else
+              throw new Contradiction(board, c,
+                "%dx%d below (%s) is missing %s (above %d)".format(col, c.below.row, l, c.below.choice, c.above.row))
           case (Unanswered(l), Answered(p)) if p == c.below.choice =>
-            if (l.contains(c.above.choice)) killClue(b.answer(c.above.row, col, c.above.choice))
-               else Contradiction(board, c)
+            if (l.contains(c.above.choice)) killClue(b.answer(c.above.row, col, c.above.choice)) else
+              throw new Contradiction(board, c,
+                "%dx%d above (%s) is missing %s (below %d)".format(col, c.above.row, l, c.above.choice, c.below.row))
 
           case (Answered(p), Unanswered(l)) if l.contains(c.below.choice) =>
             b.dismiss(c.below.row, col, c.below.choice)
@@ -35,7 +38,7 @@ object ClueSolver {
 
           case (_, _) => b
         }
-      }
+      }.checkValid
     }
     val newBoard = game.sameCol.foldLeft(game.board)(consume)
     game.copy(board = newBoard, sameCol = buff.toList)
@@ -69,10 +72,9 @@ object ClueSolver {
         case Unanswered(l) if l.contains(c.right.choice) && col <= leftIdx => row.dismiss(col, c.right.choice)
         case _ => row
       }}
-
-      Board(board.rows.updated(c.left.row, leftRow).updated(c.right.row, rightRow))
+      Board(board.rows.updated(c.left.row, leftRow).updated(c.right.row, rightRow)).checkValid
     }
-    val newBoard = game.leftToRight.foldLeft(game.board)(consume)
+    val newBoard = game.leftToRight.foldLeft(game.board)(consume).checkValid
     game.copy(board = newBoard, leftToRight = buff.toList)
   }
 
@@ -83,7 +85,7 @@ object ClueSolver {
       def killClue[T](t: T) = {buff.remove(c); t}
 
       (board.col(c.x), board.col(c.y)) match {
-        case (Some(x), Some(y)) if math.abs(x - y) != 1 => Contradiction(board, c)
+        case (Some(x), Some(y)) if math.abs(x - y) != 1 => throw new Contradiction(board, c)
         case (Some(x), Some(y)) => killClue(board)
         case (Some(x), _) => killClue(board.dismissNot(c.y.row, Set(x+1, x-1), c.y.choice))
         case (_, Some(y)) => killClue(board.dismissNot(c.x.row, Set(y+1, y-1), c.x.choice))
@@ -104,10 +106,11 @@ object ClueSolver {
           board
             .dismissNot(c.x.row, x.toSet, c.x.choice)
             .dismissNot(c.y.row, y.toSet, c.y.choice)
+            .checkValid
         }
       }
     }
-    val newBoard = game.adjCol.foldLeft(game.board)(consume)
+    val newBoard = game.adjCol.foldLeft(game.board)(consume).checkValid
     game.copy(board = newBoard, adjCol = buff.toList)
   }
 }

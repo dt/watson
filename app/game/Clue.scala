@@ -1,7 +1,10 @@
 package game
 
-class Contradiction(b: Board, c: Clue) extends Exception
-object Contradiction { def apply(b: Board, c: Clue) = throw new Contradiction(b, c)}
+class Contradiction(b: Board, c: Clue, msg: String = "")
+  extends IllegalStateException(msg + "\n clue:" + c.toString + "\n board" + b.toString)
+object Contradiction {
+  def apply(b: Board, c: Clue) = new Contradiction(b, c)
+}
 
 trait Clue { def id: String }
 case class SameCol(above: RowChoice, below: RowChoice) extends Clue {

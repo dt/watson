@@ -1,6 +1,9 @@
 package game
 
-trait Cell { def answered: Option[Choice] }
+trait Cell {
+  def isAnswered: Boolean = answered.isDefined
+  def answered: Option[Choice]
+}
 case class Answered(value: Choice) extends Cell {
   def answered = Some(value)
   override def toString = {
