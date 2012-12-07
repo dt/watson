@@ -1,7 +1,21 @@
 @(message: String)
 
-@main("Welcome to Play 2.0") {
-    
-    @play20.welcome(message)
-    
+@main("Watson") {
+  <div id="board">
+  @for(y <- 'a' to 'f') {
+    <div id="row@y" class="row">
+    @for(x <- 1 to 6) {
+      <div id="@y@x" data-row=@y data-col=@x class="cell unpicked">
+      @for(c <- 1 to 6) {
+        <a id="@y@x-@c" class="choice p@c" data-pick=@c>@y@c</a>
+      }
+      </div>
+    }
+    </div>
+  }
+  </div>
+  <div id="hclues">
+  </div>
+  <div id="vclues">
+  </div>
 }
