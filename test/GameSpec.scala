@@ -118,10 +118,11 @@ class GameSpec extends Specification {
       val g = empty(
         _.answer(0, 1, A).dismiss(1, 1, C, D, E, F),
         sameCol = List(SameCol(R0D, R1A)),
-        leftToRight = List(LeftToRight(R1A, R1B))
+        leftToRight = List(LeftToRight(R1A, R1B)),
+        adjCol = List(AdjCol(R0D, R2F))
       )
 
-      Solver(4)(g).board(0)(0) mustEqual Answered(D)
+      Solver(4)(g).board(2, 1) mustEqual Answered(F)
     }
 
 

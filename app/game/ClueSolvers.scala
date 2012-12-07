@@ -12,21 +12,27 @@ object ClueSolver {
       board.columns.foldLeft(board){ case (b, col) =>
         (b(c.above.row)(col), b(c.below.row)(col)) match {
           case (Answered(x), Answered(y)) if x == c.above.choice && y == c.below.choice =>
-            { println("killing "+c); killClue(b) }
+            killClue(b)
           case (Answered(x), Answered(y)) if x == c.above.choice || y == c.below.choice =>
             Contradiction(b, c)
-          case (Answered(p), _) if p == c.above.choice =>
-            killClue(b.answer(c.below.row, col, c.below.choice))
-          case (_, Answered(p)) if p == c.below.choice =>
-            killClue(b.answer(c.above.row, col, c.above.choice))
+
+          case (Answered(p), Unanswered(l)) if p == c.above.choice =>
+            if (l.contains(c.below.choice)) killClue(b.answer(c.below.row, col, c.below.choice))
+              else Contradiction(board, c)
+          case (Unanswered(l), Answered(p)) if p == c.below.choice =>
+            if (l.contains(c.above.choice)) killClue(b.answer(c.above.row, col, c.above.choice))
+               else Contradiction(board, c)
+
           case (Answered(p), Unanswered(l)) if l.contains(c.below.choice) =>
             b.dismiss(c.below.row, col, c.below.choice)
           case (Unanswered(l), Answered(p)) if l.contains(c.above.choice) =>
             b.dismiss(c.above.row, col, c.above.choice)
+
           case (Unanswered(l1), Unanswered(l2)) if l1.contains(c.above.choice) && !l2.contains(c.below.choice) =>
             b.dismiss(c.above.row, col, c.above.choice)
           case (Unanswered(l1), Unanswered(l2)) if l2.contains(c.below.choice) && !l1.contains(c.above.choice) =>
             b.dismiss(c.below.row, col, c.below.choice)
+
           case (_, _) => b
         }
       }

@@ -1,4 +1,4 @@
-class Choice
+class window.Choice
   constructor: (@row, @col, @option) ->
     @id = "##{@row}#{@col}-#{@option}"
     @cellId = "##{@row}#{@col}"
@@ -30,10 +30,14 @@ routeUnpick = (c) ->
 # pick a possible choice as an answer / undo a previous answer pick
 pickAnswer = (c) ->
   if checkClues(c)
-    console.log(c.id + ": answer")
-    picked[c.rowPick] = c.cellId
-    $(c.cellId).removeClass("unpicked").addClass("picked "+c.pick)
-    $(c.rowId).addClass(c.pick)
+    doAnswer c
+
+doAnswer = (c) ->
+  console.log(c.id + ": answer")
+  picked[c.rowPick] = c.cellId
+  $(c.cellId).removeClass("unpicked").addClass("picked "+c.pick)
+  $(c.rowId).addClass(c.pick)
+
 unpickAnswer = (c) ->
   unless prepickedAnswer(c)
     console.log(c.id + ": unanswer")
@@ -63,6 +67,7 @@ highlightPicked = (c) ->
 checkClues = (c) -> true
 prepickedAnswer = (c) -> false
 
+
 jQuery ->
   $(".choice").mousedown (event) ->
     event.preventDefault()
@@ -71,3 +76,7 @@ jQuery ->
     if event.which is 1 then routePick(c) else routeUnpick(c)
 
   $(".choice").bind "contextmenu", (e) -> false
+
+  for choice in initialAnswers
+    do (choice) -> doAnswer(choice)
+

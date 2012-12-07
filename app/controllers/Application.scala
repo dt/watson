@@ -7,6 +7,8 @@ import game._
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+    val answered = Game(Board.random)
+    val game = Desolver(10)(answered)
+    Ok(views.html.index(game))
   }
 }

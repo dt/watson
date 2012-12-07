@@ -5,7 +5,14 @@ object Desolver {
   def apply(maxSteps: Int)(g: Game): Game = {
     if (maxSteps > 0) {
       val stepped = all(g)
-      //println(stepped.board)
+      if (!Solver(1000)(stepped).isSolved) {
+        val oldClues = Set(g.clues:_*)
+        println("before:")
+        println(g.board)
+        println("after:")
+        println(stepped.board)
+        println("new clues:" + stepped.clues.filter(oldClues.contains))
+      }
       if (makingProgress(g, stepped))
         apply(maxSteps -1)(stepped)
       else
@@ -19,6 +26,7 @@ object Desolver {
   def all: Game => Game = (
     identity[Game] _
   )
+
 
 
 }

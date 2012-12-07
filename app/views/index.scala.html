@@ -1,4 +1,4 @@
-@(message: String)
+@(g: game.Game)
 
 @main("Watson") {
   <div id="board">
@@ -15,7 +15,21 @@
   }
   </div>
   <div id="hclues">
+  @g.adjCol.map { c =>
+    <div class="adjCol" id="@c.id">c.toString</div>
+  }
   </div>
   <div id="vclues">
+  @g.sameCol.map { c =>
+    <div class="samecol" id="@c.id">c.toString</div>
+  }
   </div>
+
+  <script>
+    var initialAnswers = [
+      @for(i <- 'a' to 'f'; j <- 1 to 6; a <- g.board(i.toInt-97, j-1).answered) {
+        new Choice('@i', @j, '@(a.i+1)'),
+      }
+    ]
+  </script>
 }

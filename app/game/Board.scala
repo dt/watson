@@ -25,7 +25,7 @@ case class Board(rows: IndexedSeq[Row]) {
 }
 
 object Board {
-  def six(f: => Row) = Board((0 until 6).map(_ => f))
+  private def six(f: => Row) = Board((0 until 6).map(_ => f))
   def full = six(Row.full)
   def empty = six(Row.empty)
   def random = six(Row.random)

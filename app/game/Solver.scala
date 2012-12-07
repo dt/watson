@@ -23,6 +23,7 @@ object Solver {
       andThen EliminationSolver.onlyCellLeftForChoice
       andThen ClueSolver.sameCol
       andThen ClueSolver.toTheRightOf
+      andThen ClueSolver.adjacentCol
   )
 
 

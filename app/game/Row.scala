@@ -2,9 +2,13 @@ package game
 
 case class Row(cells: IndexedSeq[Cell]) {
   val cols: IndexedSeq[Int] = IndexedSeq((0 to 5):_*)
+
   def apply(i: Int) = cells(i)
+
   def isSolved = cells.forall(_.isInstanceOf[Answered])
+
   def unsolved = cells.collect{case Unanswered(l) => l.size; case _ => 0}.sum
+
   def col(x: Choice): Option[Int] = cells.indexWhere(_ == Answered(x)) match {
     case -1 => None
     case x => Some(x)
