@@ -35,8 +35,8 @@ pickAnswer = (c) ->
 doAnswer = (c) ->
   console.log(c.id + ": answer")
   picked[c.rowPick] = c.cellId
-  $(c.cellId).removeClass("unpicked").addClass("picked "+c.pick)
   $(c.rowId).addClass(c.pick)
+  $(c.cellId).removeClass("unpicked").addClass("picked "+c.pick)
 
 unpickAnswer = (c) ->
   unless prepickedAnswer(c)
@@ -65,25 +65,30 @@ highlightPicked = (c) ->
   $(c.rowId+" .picked."+c.pick + "." + c.pick).effect("bounce")
 
 checkClues = (c) -> true
-prepickedAnswer = (c) -> false
+prepickedAnswer = (c) ->
+  $(c.cellId).is('.locked')
 
 dismissClue = (c) ->
   c.hide()
 
 jQuery ->
-  $(".choice").mousedown (e) ->
+  $(".choice").draggable({
+    revert: true
+    stop: (e, ui) ->
+      p = $ this
+      c = new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
+      routeUnpick(c)
+  }).click (e) ->
     e.preventDefault()
     p = $ this
     c = new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
-    if e.which is 1 then routePick(c) else routeUnpick(c)
+    unless p.is '.ui-draggable-dragging'
+      routePick(c)
 
-  $(".choice").bind "contextmenu", (e) -> false
-
-  $(".clue").bind "contextmenu", (e) ->
-    e.preventDefault()
-    dismissClue $ this
-    false
+  $(".clue").draggable({
+    stop: (e, ui) -> dismissClue $ this
+  })
 
   for choice in initialAnswers
-    do (choice) -> doAnswer(choice)
+    do (choice) -> doAnswer(choice).addClass('locked')
 
