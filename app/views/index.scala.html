@@ -7,7 +7,7 @@
     @for(x <- 1 to 6) {
       <div id="@y@x" data-row=@y data-col=@x class="cell unpicked">
       @for(c <- 1 to 6) {
-        <a id="@y@x-@c" class="choice p@c" data-pick=@c>@game.RowChoice(y-97, c-1).name</a>
+        <a id="@y@x-@c" class="choice p@c" data-pick=@c data-pick-class=p@c>@game.RowChoice(y-97, c-1).name</a>
       }
       </div>
     }

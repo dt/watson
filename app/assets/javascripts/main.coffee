@@ -35,7 +35,7 @@ pickAnswer = (c) ->
 doAnswer = (c) ->
   console.log(c.id + ": answer")
   picked[c.rowPick] = c.cellId
-  $(c.rowId).addClass(c.pick)
+  $(c.rowId).addClass(c.pick).find('.cell.unpicked').each (x) -> checkForced $ this
   $(c.cellId).removeClass("unpicked").addClass("picked "+c.pick)
 
 unpickAnswer = (c) ->
@@ -44,6 +44,9 @@ unpickAnswer = (c) ->
     picked[c.rowPick] = undefined
     $(c.cellId).addClass("unpicked").removeClass("picked "+c.pick)
     $(c.rowId).removeClass(c.pick)
+  else
+    refuse $ c.cellId
+
 dupeAnswerPicked = (c) ->
   console.log("already picked a #{c.pick} for row #{c.row}")
   highlightPicked(c)
@@ -53,6 +56,7 @@ dismissChoice = (c) ->
   console.log(c.id + ": dismiss")
   dismissedChoices[c.id] = true
   $(c.id).addClass "dismissed"
+  checkForced $ c.cellId
 undismissChoice = (c) ->
   console.log(c.id + ": undismiss")
   dismissedChoices[c.id] = false
@@ -62,32 +66,37 @@ dupeDismiss = (c) ->
   highlightPicked(c)
 
 highlightPicked = (c) ->
-  $(c.rowId+" .picked."+c.pick + "." + c.pick).effect("bounce")
+  refuse $(c.rowId+" .picked."+c.pick + "." + c.pick)
+
+refuse = (el) -> el.effect("bounce")
+
+checkForced = (cell) ->
+  row = cell.parent()
+  remaining = cell.find('.choice:not(.dismissed)').filter((x) -> !row.hasClass($(this).data('pick-class')))
+  if remaining.length == 1
+    doAnswer getChoice $ remaining[0]
 
 checkClues = (c) -> true
+
+
 prepickedAnswer = (c) ->
   $(c.cellId).is('.locked')
 
 dismissClue = (c) ->
   c.hide()
 
-jQuery ->
-  $(".choice").draggable({
-    revert: true
-    stop: (e, ui) ->
-      p = $ this
-      c = new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
-      routeUnpick(c)
-  }).click (e) ->
-    e.preventDefault()
-    p = $ this
-    c = new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
-    unless p.is '.ui-draggable-dragging'
-      routePick(c)
+getChoice = (p) ->
+  new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
 
-  $(".clue").draggable({
-    stop: (e, ui) -> dismissClue $ this
-  })
+jQuery ->
+  $(document).bind('touchmove', false)
+
+  $(".choice")
+    .hammer()
+    .bind('tap', () -> routeUnpick getChoice $ this)
+    .bind('hold', () -> routePick getChoice $ this)
+
+  $(".clue").hammer().bind 'swipe', () -> dismissClue $ this
 
   for choice in initialAnswers
     do (choice) -> doAnswer(choice).addClass('locked')
