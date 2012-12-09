@@ -1,4 +1,4 @@
 package object game {
-  def debugging = true
+  def debugging = false
   def six = IndexedSeq(0 to 5:_*)
 }

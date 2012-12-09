@@ -1,5 +1,9 @@
 package game
 
+class IncorrectAnswer(row: Int, col: Int, said: Choice, shouldBe: Choice) extends IllegalStateException({
+  "Tried to put %s at row %d, col %d; should be %s".format(said, row, col, shouldBe)
+})
+
 sealed trait Choice { def i: Int}
 case object A extends Choice { val i = 0 }
 case object B extends Choice { val i = 1 }
@@ -11,10 +15,13 @@ case object F extends Choice { val i = 5 }
 trait RowChoice {
   def row: Int
   def choice: Choice
+  def name: String = row + choice.toString
+  def <(other: RowChoice): Boolean = row < other.row
 }
 
 object RowChoice {
-  def apply(row: Int, choice: Choice) = {
+  def apply(row: Int, choice: Int): RowChoice = apply(row, Choice.all(choice))
+  def apply(row: Int, choice: Choice): RowChoice = {
     row match {
       case 0 => choice match {
         case A => R0A

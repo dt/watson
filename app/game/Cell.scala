@@ -7,7 +7,7 @@ trait Cell {
 case class Answered(value: Choice) extends Cell {
   def answered = Some(value)
   override def toString = {
-    "%s%s%s".format(("-" * value.i) + Console.BOLD, value, Console.RESET + ("-" * (5 - value.i)))
+    "%s%s%s".format(("~" * value.i) + Console.BOLD, value, Console.RESET + ("~" * (5 - value.i)))
   }
 }
 case class Unanswered(possible: List[Choice]) extends Cell {

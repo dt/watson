@@ -1,0 +1,22 @@
+@import "style";
+
+.choice.dismissed {
+  .dismissed;
+}
+
+.row.p1 .unpicked .p1,
+.row.p2 .unpicked .p2,
+.row.p3 .unpicked .p3,
+.row.p4 .unpicked .p4,
+.row.p5 .unpicked .p5,
+.row.p6 .unpicked .p6
+{ .dismissed; }
+
+.cell.picked .choice { display: none;}
+.cell.picked.p1 .p1,
+.cell.picked.p2 .p2,
+.cell.picked.p3 .p3,
+.cell.picked.p4 .p4,
+.cell.picked.p5 .p5,
+.cell.picked.p6 .p6
+{ .chosen; }

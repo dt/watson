@@ -1,4 +1,5 @@
 package game
+import play.api.Logger
 
 case class Board(rows: IndexedSeq[Row]) {
   def apply(i: Int) = rows(i)
@@ -8,10 +9,9 @@ case class Board(rows: IndexedSeq[Row]) {
   def unsolved = rows.map(_.unsolved).sum
   def cells = rows.flatMap(_.cells)
 
-  def checkValid = if (debugging){ rows.foreach(_.checkValid); this} else this
-
   def answer(row: Int, col: Int, choice: Choice) =
-    Board(rows.updated(row, rows(row).answer(col, choice))).checkValid
+    Board(rows.updated(row, rows(row).answer(col, choice)))
+
 
   def unanswer(row: Int, col: Int) = Board(rows.updated(row, rows(row).unanswer(col)))
   def dismiss(row: Int, col: Int, choice: Choice*) = Board(rows.updated(row, rows(row).dismiss(col, choice:_*)))

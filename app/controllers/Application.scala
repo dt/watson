@@ -7,12 +7,12 @@ import game._
 object Application extends Controller {
 
   def index = Action {
-    val answered = Game(Board.random)
+    val answered = Game.random
     try {
-      val game = Desolver(10)(answered)
+      val game = Desolver(50)(answered)
       Ok(views.html.index(game))
     } catch {
-      case c: Contradiction => { println("original: \n" + answered.board); throw c }
+      case c: ContradictionCreated => { Logger.error("original: \n" + answered.board); throw c }
     }
   }
 }

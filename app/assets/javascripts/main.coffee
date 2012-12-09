@@ -67,15 +67,22 @@ highlightPicked = (c) ->
 checkClues = (c) -> true
 prepickedAnswer = (c) -> false
 
+dismissClue = (c) ->
+  c.hide()
 
 jQuery ->
-  $(".choice").mousedown (event) ->
-    event.preventDefault()
+  $(".choice").mousedown (e) ->
+    e.preventDefault()
     p = $ this
     c = new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
-    if event.which is 1 then routePick(c) else routeUnpick(c)
+    if e.which is 1 then routePick(c) else routeUnpick(c)
 
   $(".choice").bind "contextmenu", (e) -> false
+
+  $(".clue").bind "contextmenu", (e) ->
+    e.preventDefault()
+    dismissClue $ this
+    false
 
   for choice in initialAnswers
     do (choice) -> doAnswer(choice)

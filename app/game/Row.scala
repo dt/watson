@@ -1,5 +1,8 @@
 package game
 
+class InvalidRow(dupe: Choice, row: Row)
+  extends IllegalStateException("duplicate value: %s in %s".format(dupe, row))
+
 case class Row(cells: IndexedSeq[Cell]) {
   val cols: IndexedSeq[Int] = IndexedSeq((0 to 5):_*)
 
@@ -8,13 +11,10 @@ case class Row(cells: IndexedSeq[Cell]) {
   def isSolved = cells.forall(_.isInstanceOf[Answered])
 
   def checkValid = if (debugging) {
-    val s = cells.foldLeft(Map.empty[Choice, Int]){
+    cells.foldLeft(Map.empty[Choice, Int]){
       case (m, Answered(x)) => m.updated(x, m.getOrElse(x, 0) + 1)
       case (m, _) => m
-    }
-    s.find(_._2 > 1).foreach { i =>
-      throw new IllegalStateException("duplicate value: %s in %s".format(i._1, this))
-    }
+    }.find(_._2 > 1).foreach(i => throw new InvalidRow(i._1, this))
     this
   } else this
 
@@ -39,7 +39,7 @@ case class Row(cells: IndexedSeq[Cell]) {
   def unanswer(col: Int) = cells(col) match {
     case Answered(x) => Row(cols.map(i => cells(i) match {
       case _ if i == col => Unanswered.all
-      case Unanswered(l) => Unanswered((x :: l).sorted)
+      case Unanswered(l) => Unanswered((x :: l).sorted.distinct)
       case x => x
     }))
     case _ => throw new IllegalArgumentException("can't unanswer an unanswered cell")

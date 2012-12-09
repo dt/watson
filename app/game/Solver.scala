@@ -1,16 +1,20 @@
 package game
+import scala.collection.mutable
 
 object Solver {
   type Step = Game => Game
+  val cache = mutable.Map.empty[Game, Game]
 
-  def apply(maxSteps: Int)(g: Game): Game = {
-    g.board.checkValid
+  def apply(maxSteps: Int)(g: Game): Game = cache.getOrElseUpdate(g, solve(maxSteps)(g))
+
+  def solve(maxSteps: Int)(g: Game): Game = {
     if (maxSteps > 0) {
-      val stepped = all(g)
-      stepped.board.checkValid
-      //println(stepped.board)
+      val stepped = cache.getOrElseUpdate(g,
+        try { all(g) } catch {
+        case c: Contradiction => throw new ContradictionCreated(c, g, g(_ => c.board))
+      })
       if (makingProgress(g, stepped))
-        apply(maxSteps -1)(stepped)
+        solve(maxSteps -1)(stepped)
       else
         stepped
     } else g
