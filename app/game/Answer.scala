@@ -105,7 +105,7 @@ case object R3B extends RowChoice { def row = 3; def choice = B; override def na
 case object R3C extends RowChoice { def row = 3; def choice = C; override def name = "☁" }
 case object R3D extends RowChoice { def row = 3; def choice = D; override def name = "☂" }
 case object R3E extends RowChoice { def row = 3; def choice = E; override def name = "☀" }
-case object R3F extends RowChoice { def row = 3; def choice = F; override def name = "⚡" }
+case object R3F extends RowChoice { def row = 3; def choice = F; override def name = "❀" }
 
 case object R4A extends RowChoice { def row = 4; def choice = A; override def name = "⚀" }
 case object R4B extends RowChoice { def row = 4; def choice = B; override def name = "⚁" }
