@@ -16,6 +16,7 @@ routePick = (c) ->
   else if picked[c.rowPick]
     dupeAnswerPicked(c)
   else pickAnswer(c)
+  false
 
 routeUnpick = (c) ->
   if picked[c.rowPick] == c.cellId
@@ -26,6 +27,7 @@ routeUnpick = (c) ->
     undismissChoice c
   else
     dismissChoice c
+  false
 
 # pick a possible choice as an answer / undo a previous answer pick
 pickAnswer = (c) ->
@@ -85,19 +87,29 @@ prepickedAnswer = (c) ->
 
 dismissClue = (c) ->
   c.hide()
+  false
 
 getChoice = (p) ->
   new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
 
 jQuery ->
-  $(document).bind('touchmove', false)
+  if 'ontouchstart' in document.documentElement
+    $("body").addClass("touch")
+    $(document).bind('touchmove', false)
 
-  $(".choice")
-    .hammer()
-    .bind('tap', () -> routeUnpick getChoice $ this)
-    .bind('hold', () -> routePick getChoice $ this)
+    $(".choice")
+      .hammer()
+      .bind('tap', () -> routeUnpick getChoice $ this)
+      .bind('hold', () -> routePick getChoice $ this)
 
-  $(".clue").hammer().bind 'swipe', () -> dismissClue $ this
+    $(".clue").hammer().bind 'swipe', () -> dismissClue $ this
+  else
+    $("body").addClass("desktop")
+    $(".choice")
+      .bind('contextmenu', () -> routeUnpick getChoice $ this)
+      .bind('click', () -> routePick getChoice $ this)
+
+    $(".clue").hammer().bind 'contextmenu', () -> dismissClue $ this
 
   for choice in initialAnswers
     do (choice) -> doAnswer(choice).addClass('locked')
