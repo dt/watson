@@ -18,15 +18,27 @@
   </div>
   <div id="hclues">
   @g.adjCol.map { c =>
-    <div class="adjCol clue" id="@c.id">@c.name</div>
+    <div class="adjCol clue" id="@c.id">
+      <span class="r@c.x.row">@c.x.name</span>
+      <span class="relation">↔</span>
+      <span class="r@c.y.row">@c.y.name</span>
+    </div>
   }
   @g.leftToRight.map { c =>
-    <div class="ltr clue" id="@c.id">@c.name</div>
+    <div class="ltr clue" id="@c.id">
+      <span class="r@c.left.row">@c.left.name</span>
+      <span class="relation">→</span>
+      <span class="r@c.right.row">@c.right.name</span>
+    </div>
   }
   </div>
   <div id="vclues">
   @g.sameCol.map { c =>
-    <div class="samecol clue" id="@c.id">@c.name</div>
+    <div class="samecol clue" id="@c.id">
+      <span class="r@c.above.row">@c.above.name</span>
+      <span class="relation">↓</span>
+      <span class="r@c.below.row">@c.below.name</span>
+    </div>
   }
   </div>
 
