@@ -74,7 +74,8 @@ checkForced = (cell) ->
   row = cell.parent()
   remaining = cell.find('.choice:not(.dismissed)').filter((x) -> !row.hasClass($(this).data('pick-class')))
   if remaining.length == 1
-    doAnswer getChoice $ remaining[0]
+    #doAnswer getChoice $ remaining[0]
+    console.log("want to auto-answer:", getChoice $ remaining[0])
 
 checkClues = (c) -> true
 
