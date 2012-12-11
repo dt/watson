@@ -93,7 +93,7 @@ getChoice = (p) ->
   new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
 
 jQuery ->
-  if 'ontouchstart' in document.documentElement
+  if Modernizr.touch
     $("body").addClass("touch")
     $(document).bind('touchmove', false)
 
@@ -110,6 +110,7 @@ jQuery ->
       .bind('click', () -> routePick getChoice $ this)
 
     $(".clue").hammer().bind 'contextmenu', () -> dismissClue $ this
+
 
   for choice in initialAnswers
     do (choice) -> doAnswer(choice).addClass('locked')
