@@ -1,6 +1,7 @@
 @(g: game.Game)
 
 @main("Watson") {
+<div id="leftcol">
   <div id="board">
   @for(y <- 'a' to 'f') {
     <div id="row@y" class="row">
@@ -16,6 +17,18 @@
     </div>
   }
   </div>
+    <div id="vclues">
+  @g.sameCol.map { c =>
+    <div class="samecol clue" id="@c.id">
+      <span class="r@c.above.row">@c.above.name</span>
+      <span class="relation">↓</span>
+      <span class="r@c.below.row">@c.below.name</span>
+    </div>
+  }
+  <div style="clear:both;"></div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
   <div id="hclues">
   @g.adjCol.map { c =>
     <div class="adjCol clue" id="@c.id">
@@ -31,15 +44,15 @@
       <span class="r@c.right.row">@c.right.name</span>
     </div>
   }
-  </div>
-  <div id="vclues">
-  @g.sameCol.map { c =>
-    <div class="samecol clue" id="@c.id">
-      <span class="r@c.above.row">@c.above.name</span>
-      <span class="relation">↓</span>
-      <span class="r@c.below.row">@c.below.name</span>
-    </div>
-  }
+  <p id="howtoplay">
+    <h1>How to Play</h1>
+    <ul>
+      <li>Tap to dismiss an option. Tap and hold to select
+      <li>"x ↔ y" means "x appears in the column next to y"
+      <li>"x → y" means "y appears in a column somewhere to the right of x"
+      <li>"x ↓ y" means "x appears above y in the same column"
+    </ul>
+  </p>
   </div>
 
   <script>

@@ -1,5 +1,14 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
 .choiceInner {
-  font-size: 2em;
+  font-size: 1.9em;
   display: block;
   margin-top: -6px;
   margin-left: auto;
@@ -12,19 +21,33 @@
   font-size: 1.4em;
 }
 
+#howtoplay {
+  clear: both;
+}
+
 .clue {
   span.r0, span.r1 {
     margin-top: 0px;
-    font-size: 1.3em;
+    font-size: 1.2em;
+  }
+  span.r4, span.r5 {
+    font-size: 1.8em;
   }
   span {
     margin-top: -6px;
     display: inline-block;
-    font-size: 1.8em;
+    font-size: 1.5em;
     height: 22px;
     width: 22px;
     padding: 1px;
   }
+}
+
+#hclues .clue {
+  .relation {
+    padding: 5px;
+  }
+  height: 28px;
 }
 
 .dismissed {
