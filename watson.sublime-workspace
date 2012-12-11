@@ -4,6 +4,106 @@
 		"selected_items":
 		[
 			[
+				"check",
+				"checkForced"
+			],
+			[
+				"get",
+				"getChoice"
+			],
+			[
+				"route",
+				"routeUnpick"
+			],
+			[
+				"java",
+				"javascript"
+			],
+			[
+				"tex",
+				"text"
+			],
+			[
+				"C",
+				"Contradiction"
+			],
+			[
+				"In",
+				"InvalidRow"
+			],
+			[
+				"w",
+				"weight"
+			],
+			[
+				"fi",
+				"finishPasses"
+			],
+			[
+				"if",
+				"ifSolvable"
+			],
+			[
+				"rand",
+				"randAnswered"
+			],
+			[
+				"ad",
+				"adjCol"
+			],
+			[
+				"Con",
+				"ContradictionCreated"
+			],
+			[
+				"Un",
+				"UnsolvableGameCreated"
+			],
+			[
+				"new",
+				"newClues"
+			],
+			[
+				"I",
+				"IllegalStateException"
+			],
+			[
+				"ran",
+				"randAnswered"
+			],
+			[
+				"con",
+				"contextmenu"
+			],
+			[
+				"ch",
+				"checkValid"
+			],
+			[
+				"un",
+				"unanswer"
+			],
+			[
+				"filter",
+				"filtered"
+			],
+			[
+				"init",
+				"initial"
+			],
+			[
+				"dismi",
+				"dismissNot"
+			],
+			[
+				"dism",
+				"dismissNot"
+			],
+			[
+				"kil",
+				"killClue"
+			],
+			[
 				"prompt",
 				"PROMPT_COMMAND"
 			],
@@ -34,10 +134,6 @@
 			[
 				"who",
 				"who_to_nag"
-			],
-			[
-				"if",
-				"ifmain	if __name__ == '__main__'"
 			],
 			[
 				"Option",
@@ -138,10 +234,6 @@
 			[
 				"Inv",
 				"InviteCreator"
-			],
-			[
-				"In",
-				"InviteCretor"
 			],
 			[
 				"Re",
@@ -372,10 +464,6 @@
 				"required"
 			],
 			[
-				"get",
-				"getStackTrace"
-			],
-			[
 				"thro",
 				"throttles"
 			],
@@ -426,99 +514,51 @@
 			[
 				"Sp",
 				"Special"
-			],
-			[
-				"anno",
-				"annotations"
-			],
-			[
-				"pass",
-				"passthrough"
-			],
-			[
-				"run_",
-				"run_command"
-			],
-			[
-				"db",
-				"dbLoadedOffers"
-			],
-			[
-				"desc",
-				"description"
-			],
-			[
-				"de",
-				"describeOffer"
-			],
-			[
-				"des",
-				"describeOffer"
-			],
-			[
-				"pageI",
-				"pageidOption"
-			],
-			[
-				"chang",
-				"changed_name"
-			],
-			[
-				"rele",
-				"release_file"
-			],
-			[
-				"chan",
-				"changed_name"
-			],
-			[
-				"cha",
-				"changed_name"
-			],
-			[
-				"sum",
-				"summary"
-			],
-			[
-				"st",
-				"string"
-			],
-			[
-				"where",
-				"whereIsOffer"
-			],
-			[
-				"String",
-				"String"
-			],
-			[
-				"thread",
-				"threading"
-			],
-			[
-				"Boo",
-				"BooleanField"
-			],
-			[
-				"amo",
-				"amountOption"
-			],
-			[
-				"DispatchR",
-				"DispatchResponse"
-			],
-			[
-				"Di",
-				"DispatchRequest"
-			],
-			[
-				"req",
-				"requirePost"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "app/assets/javascripts/main.coffee",
+			"settings":
+			{
+				"buffer_size": 2720,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/main.scala.html",
+			"settings":
+			{
+				"buffer_size": 1129,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/main.less",
+			"settings":
+			{
+				"buffer_size": 153,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/style.less",
+			"settings":
+			{
+				"buffer_size": 466,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/logic.less",
+			"settings":
+			{
+				"buffer_size": 385,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -600,6 +640,27 @@
 	},
 	"file_history":
 	[
+		"/Users/davidt/code/watson/app/views/index.scala.html",
+		"/Users/davidt/code/watson/app/game/Row.scala",
+		"/Users/davidt/code/watson/conf/application.conf",
+		"/Users/davidt/code/watson/app/controllers/Application.scala",
+		"/Users/davidt/code/watson/app/game/ClueSolvers.scala",
+		"/Users/davidt/code/watson/app/game/Answer.scala",
+		"/Users/davidt/code/watson/app/game/Clue.scala",
+		"/Users/davidt/code/watson/app/game/package.scala",
+		"/Users/davidt/code/watson/app/game/Game.scala",
+		"/Users/davidt/code/watson/app/game/Board.scala",
+		"/Users/davidt/code/watson/app/game/Desolver.scala",
+		"/Users/davidt/code/watson/app/game/Solver.scala",
+		"/Users/davidt/code/watson/app/game/Cell.scala",
+		"/Users/davidt/code/watson/app/game/EliminationSolvers.scala",
+		"/Users/davidt/code/watson/app/assets/stylesheets/style.less",
+		"/Users/davidt/code/watson/app/assets/stylesheets/main.less",
+		"/Users/davidt/code/watson/app/assets/javascripts/main.coffee",
+		"/Users/davidt/code/watson/app/views/main.scala.html",
+		"/Users/davidt/code/watson/app/assets/stylesheets/logic.less",
+		"/Users/davidt/code/watson/.git/COMMIT_EDITMSG",
+		"/Users/davidt/code/watson/test/GameSpec.scala",
 		"/Users/davidt/code/rogue/rogue-core/src/main/scala/com/foursquare/rogue/QueryField.scala",
 		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/base/Statmon.scala",
 		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/BUILD",
@@ -706,28 +767,7 @@
 		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/radar/concrete/module/BUILD",
 		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/venue/model/VenuePhrases.scala",
 		"/Users/davidt/code/foursquare.web/core/src/main/thrift/com/foursquare/nlp/BUILD",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/service/BUILD",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/BUILD",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/AddUsersToSolr.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/AddUsersToSolrQueueConsumer.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/pages/concrete/ConcretePageActions.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/venue/util/PartitionedPopularity.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/venue/model/RankableVenue.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/user/concrete/ConcreteUserActions.scala",
-		"/Users/davidt/code/foursquare.web/web/src/main/scala/com/foursquare/queueworkers/JobQueueWorkers.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/user/concrete/BUILD",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/venue/score/concrete/BUILD",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/model/ElasticVenue.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/model/BUILD",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/model/SolrVenue.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/AddTipsToSolr.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/ConcreteElasticsearchService.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/ConcreteSolrEventFinder.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/ConcreteSolrTipFinder.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/ConcreteSolrTipListFinder.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/SolrEventQueueConsumer.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/SolrTipListQueueConsumer.scala",
-		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/concrete/ConcreteElasticVenueActions.scala"
+		"/Users/davidt/code/foursquare.web/core/src/main/scala/com/foursquare/search/service/BUILD"
 	],
 	"find":
 	{
@@ -762,6 +802,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"checkV",
+			"checkVal",
+			"::",
+			"print",
+			"Solver",
+			"throw C",
 			"base",
 			"exists",
 			"expire",
@@ -883,13 +929,7 @@
 			"LocalS",
 			"ScoreDisplayEle",
 			"ScoringRule",
-			"VenueWo",
-			" with",
-			"throttle",
-			"delete",
-			"spy",
-			"Campaign\\.",
-			"CampaignAc"
+			"VenueWo"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -897,6 +937,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"throw new C",
 			"/Users/davidt/code/",
 			"",
 			"SearchIndexing.RequiredServices",
@@ -1023,8 +1064,7 @@
 			"$1SpecialsList$2\\n$1SpecialsCreate$2",
 			"SpecialsList",
 			"_specials_create",
-			"new-special",
-			"SpecialsCreate"
+			"new-special"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1035,8 +1075,145 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/assets/javascripts/main.coffee",
+					"settings":
+					{
+						"buffer_size": 2720,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1979,
+								1979
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 751.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/main.scala.html",
+					"settings":
+					{
+						"buffer_size": 1129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1068,
+								1068
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/assets/stylesheets/main.less",
+					"settings":
+					{
+						"buffer_size": 153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								118,
+								118
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/assets/stylesheets/style.less",
+					"settings":
+					{
+						"buffer_size": 466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/assets/stylesheets/logic.less",
+					"settings":
+					{
+						"buffer_size": 385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1085,6 +1262,210 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"inde",
+				"app/views/index.scala.html"
+			],
+			[
+				"logic",
+				"app/assets/stylesheets/logic.less"
+			],
+			[
+				"style",
+				"app/assets/stylesheets/style.less"
+			],
+			[
+				"less",
+				"app/assets/stylesheets/main.less"
+			],
+			[
+				"mainht",
+				"app/views/main.scala.html"
+			],
+			[
+				"cof",
+				"app/assets/javascripts/main.coffee"
+			],
+			[
+				"pac",
+				"app/game/package.scala"
+			],
+			[
+				"clue",
+				"app/game/Clue.scala"
+			],
+			[
+				"con",
+				"conf/application.conf"
+			],
+			[
+				"row",
+				"app/game/Row.scala"
+			],
+			[
+				"cell.",
+				"app/game/Cell.scala"
+			],
+			[
+				"appl",
+				"app/controllers/Application.scala"
+			],
+			[
+				"clue.",
+				"app/game/Clue.scala"
+			],
+			[
+				"game.",
+				"app/game/Game.scala"
+			],
+			[
+				"board",
+				"app/game/Board.scala"
+			],
+			[
+				"cell",
+				"app/game/Cell.scala"
+			],
+			[
+				"answ",
+				"app/game/Answer.scala"
+			],
+			[
+				"desol",
+				"app/game/Desolver.scala"
+			],
+			[
+				"game",
+				"app/game/Game.scala"
+			],
+			[
+				"solver",
+				"app/game/Solver.scala"
+			],
+			[
+				"elimi",
+				"app/game/EliminationSolvers.scala"
+			],
+			[
+				"row.",
+				"app/game/Row.scala"
+			],
+			[
+				"cluesol",
+				"app/game/ClueSolvers.scala"
+			],
+			[
+				"desolv",
+				"app/game/Desolver.scala"
+			],
+			[
+				"answer",
+				"app/game/Answer.scala"
+			],
+			[
+				"main.cof",
+				"app/assets/javascripts/main.coffee"
+			],
+			[
+				"style.",
+				"app/assets/stylesheets/style.less"
+			],
+			[
+				"main.e",
+				"app/assets/stylesheets/main.less"
+			],
+			[
+				"main",
+				"app/assets/stylesheets/main.less"
+			],
+			[
+				"pag",
+				"app/game/package.scala"
+			],
+			[
+				"eli",
+				"app/game/EliminationSolvers.scala"
+			],
+			[
+				"row.s",
+				"app/game/Row.scala"
+			],
+			[
+				"row.sc",
+				"app/game/Row.scala"
+			],
+			[
+				"board.",
+				"app/game/Board.scala"
+			],
+			[
+				"solve",
+				"app/game/Solver.scala"
+			],
+			[
+				"clues",
+				"app/game/ClueSolvers.scala"
+			],
+			[
+				"des",
+				"app/game/Desolver.scala"
+			],
+			[
+				"clue.s",
+				"app/game/Clue.scala"
+			],
+			[
+				"clueso",
+				"app/game/ClueSolvers.scala"
+			],
+			[
+				"ans",
+				"app/game/Answer.scala"
+			],
+			[
+				"game.sc",
+				"app/game/Game.scala"
+			],
+			[
+				"cel",
+				"app/game/Cell.scala"
+			],
+			[
+				"appht",
+				"app/views/main.scala.html"
+			],
+			[
+				"main.c",
+				"app/assets/javascripts/main.coffee"
+			],
+			[
+				"applc",
+				"app/controllers/Application.scala"
+			],
+			[
+				"boa",
+				"app/game/Board.scala"
+			],
+			[
+				"gamesp",
+				"test/GameSpec.scala"
+			],
+			[
+				"desolver",
+				"app/game/Desolver.scala"
+			],
+			[
+				"answe",
+				"app/game/Answer.scala"
+			],
+			[
+				"games",
+				"test/GameSpec.scala"
+			],
+			[
+				"c",
+				"app/game/Clue.scala"
+			],
 			[
 				"cardspthr",
 				"core/src/main/scala/com/foursquare/specials2/service/bin/CardSpringServiceThriftWrapper.scala"
@@ -1392,210 +1773,6 @@
 			[
 				"core/src/main/scala/com/foursquare/frontend/pages/build",
 				"core/src/main/scala/com/foursquare/frontend/pages/BUILD"
-			],
-			[
-				"core/src/main/scala/com/foursquare/frontend/layouts/build",
-				"core/src/main/scala/com/foursquare/frontend/layouts/BUILD"
-			],
-			[
-				"core/src/main/scala/com/foursquare/frontend/chrome/build",
-				"core/src/main/scala/com/foursquare/frontend/chrome/BUILD"
-			],
-			[
-				"3rdpabu",
-				"3rdparty/BUILD"
-			],
-			[
-				"soywebtembuil",
-				"web/src/main/resources/soy-web-templates/BUILD"
-			],
-			[
-				"searindex",
-				"core/src/main/scala/com/foursquare/search/concrete/SearchIndexing.scala"
-			],
-			[
-				"searinde",
-				"core/src/main/scala/com/foursquare/search/concrete/SearchIndexing.scala"
-			],
-			[
-				"experscala",
-				"core/src/main/scala/com/foursquare/throttles/services/ExperimentThrottle.scala"
-			],
-			[
-				"web/src/main/resources/soy-web-templates/bu",
-				"web/src/main/resources/soy-web-templates/BUILD"
-			],
-			[
-				"ads/seracconbu",
-				"core/src/main/scala/com/foursquare/ads/server/actions/concrete/BUILD"
-			],
-			[
-				"radcomodbu",
-				"core/src/main/scala/com/foursquare/radar/concrete/module/BUILD"
-			],
-			[
-				"nlp/",
-				"core/src/main/thrift/com/foursquare/nlp/BUILD"
-			],
-			[
-				"evenconbui",
-				"core/src/main/scala/com/foursquare/events/concrete/service/BUILD"
-			],
-			[
-				"scalafours/build",
-				"core/src/main/scala/com/foursquare/BUILD"
-			],
-			[
-				"partit",
-				"core/src/main/scala/com/foursquare/venue/util/PartitionedPopularity.scala"
-			],
-			[
-				"rankable",
-				"core/src/main/scala/com/foursquare/venue/model/RankableVenue.scala"
-			],
-			[
-				"seach/service/bu",
-				"core/src/main/scala/com/foursquare/search/service/BUILD"
-			],
-			[
-				"adduserto",
-				"core/src/main/scala/com/foursquare/search/concrete/AddUsersToSolr.scala"
-			],
-			[
-				"core/src/main/scala/com/foursquare/ads/server/bin",
-				"core/src/main/scala/com/foursquare/ads/server/bin/BUILD"
-			],
-			[
-				"foursquare/bu",
-				"core/src/main/scala/com/foursquare/BUILD"
-			],
-			[
-				"search/lib",
-				"core/src/main/scala/com/foursquare/search/lib/BUILD"
-			],
-			[
-				"search/model/",
-				"core/src/main/scala/com/foursquare/search/model/BUILD"
-			],
-			[
-				"foursquare/bui",
-				"core/src/main/scala/com/foursquare/BUILD"
-			],
-			[
-				"categorscala",
-				"core/src/main/scala/com/foursquare/venue/model/Category.scala"
-			],
-			[
-				"miniven",
-				"core/src/main/scala/com/foursquare/search/model/MiniVenue.scala"
-			],
-			[
-				"tinyven",
-				"web/src/main/scala/com/foursquare/api2/json/TinyVenueJson.scala"
-			],
-			[
-				"task",
-				"core/src/main/scala/com/foursquare/task/lib/Task.scala"
-			],
-			[
-				"spec2thrift",
-				"core/src/main/thrift/com/foursquare/specials2/service/specialsservice.thrift"
-			],
-			[
-				"jsonbui",
-				"core/src/main/scala/com/foursquare/json/builder/JsonBuilder.scala"
-			],
-			[
-				"pagesend",
-				"web/src/main/scala/com/foursquare/api2/endpoints/PagesEndpoints.scala"
-			],
-			[
-				"venjson",
-				"web/src/main/scala/com/foursquare/api2/json/VenueJson.scala"
-			],
-			[
-				"venujso",
-				"web/src/main/scala/com/foursquare/api2/json/VenueJson.scala"
-			],
-			[
-				"venue.sc",
-				"core/src/main/scala/com/foursquare/coremodel/Venue.scala"
-			],
-			[
-				"venuespfind",
-				"core/src/main/scala/com/foursquare/venue/finders/VenueSpecialFinder.scala"
-			],
-			[
-				"concretepagefinder.sca",
-				"core/src/main/scala/com/foursquare/pages/concrete/ConcretePageFinder.scala"
-			],
-			[
-				"venue.sca",
-				"core/src/main/scala/com/foursquare/coremodel/Venue.scala"
-			],
-			[
-				"campauc",
-				"core/src/main/scala/com/foursquare/special/model/CampaignAux.scala"
-			],
-			[
-				"spefilter",
-				"core/src/main/scala/com/foursquare/special/lib/SpeicalFilter.scala"
-			],
-			[
-				"concamfin",
-				"core/src/main/scala/com/foursquare/special/concrete/ConcreteCampaignFinder.scala"
-			],
-			[
-				"campfinder",
-				"core/src/main/scala/com/foursquare/special/service/CampaignFinder.scala"
-			],
-			[
-				"convenspefind",
-				"core/src/main/scala/com/foursquare/venue/concrete/ConcreteVenueSpecialFinder.scala"
-			],
-			[
-				"venuspfind",
-				"core/src/main/scala/com/foursquare/venue/finders/VenueSpecialFinder.scala"
-			],
-			[
-				"offer.thr",
-				"core/src/main/thrift/com/foursquare/specials2/offers.thrift"
-			],
-			[
-				"campaaux",
-				"core/src/main/thrift/com/foursquare/specials/campaign_aux.thrift"
-			],
-			[
-				"venconbuild",
-				"core/src/main/scala/com/foursquare/venue/concrete/BUILD"
-			],
-			[
-				"dynconcrebu",
-				"core/src/main/scala/com/foursquare/dynconfig/concrete/BUILD"
-			],
-			[
-				"dyncon",
-				"core/src/main/scala/com/foursquare/dynconfig/BUILD"
-			],
-			[
-				"speciallibb",
-				"core/src/main/scala/com/foursquare/special/lib/BUILD"
-			],
-			[
-				"specservicebuil",
-				"core/src/main/scala/com/foursquare/special/service/BUILD"
-			],
-			[
-				"speaction",
-				"core/src/main/scala/com/foursquare/special/service/SpecialActions.scala"
-			],
-			[
-				"activijson",
-				"web/src/main/scala/com/foursquare/api2/json/ActivityJson.scala"
-			],
-			[
-				"api2jsonbu",
-				"web/src/main/scala/com/foursquare/api2/json/BUILD"
 			]
 		],
 		"width": 0.0

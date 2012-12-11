@@ -79,46 +79,46 @@ object Choice {
   implicit def ord: Ordering[Choice] = Ordering.by(_.i)
   val all: IndexedSeq[Choice] = IndexedSeq(A, B, C, D, E, F)
 }
-case object R0A extends RowChoice { def row = 0; def choice = A }
-case object R0B extends RowChoice { def row = 0; def choice = B }
-case object R0C extends RowChoice { def row = 0; def choice = C }
-case object R0D extends RowChoice { def row = 0; def choice = D }
-case object R0E extends RowChoice { def row = 0; def choice = E }
-case object R0F extends RowChoice { def row = 0; def choice = F }
+case object R0A extends RowChoice { def row = 0; def choice = A; override def name = "Ⓐ" }
+case object R0B extends RowChoice { def row = 0; def choice = B; override def name = "Ⓑ" }
+case object R0C extends RowChoice { def row = 0; def choice = C; override def name = "Ⓒ" }
+case object R0D extends RowChoice { def row = 0; def choice = D; override def name = "Ⓓ" }
+case object R0E extends RowChoice { def row = 0; def choice = E; override def name = "Ⓔ" }
+case object R0F extends RowChoice { def row = 0; def choice = F; override def name = "Ⓕ" }
 
-case object R1A extends RowChoice { def row = 1; def choice = A }
-case object R1B extends RowChoice { def row = 1; def choice = B }
-case object R1C extends RowChoice { def row = 1; def choice = C }
-case object R1D extends RowChoice { def row = 1; def choice = D }
-case object R1E extends RowChoice { def row = 1; def choice = E }
-case object R1F extends RowChoice { def row = 1; def choice = F }
+case object R1A extends RowChoice { def row = 1; def choice = A; override def name = "①" }
+case object R1B extends RowChoice { def row = 1; def choice = B; override def name = "②" }
+case object R1C extends RowChoice { def row = 1; def choice = C; override def name = "③" }
+case object R1D extends RowChoice { def row = 1; def choice = D; override def name = "④" }
+case object R1E extends RowChoice { def row = 1; def choice = E; override def name = "⑤" }
+case object R1F extends RowChoice { def row = 1; def choice = F; override def name = "⑥" }
 
-case object R2A extends RowChoice { def row = 2; def choice = A }
-case object R2B extends RowChoice { def row = 2; def choice = B }
-case object R2C extends RowChoice { def row = 2; def choice = C }
-case object R2D extends RowChoice { def row = 2; def choice = D }
-case object R2E extends RowChoice { def row = 2; def choice = E }
-case object R2F extends RowChoice { def row = 2; def choice = F }
+case object R2A extends RowChoice { def row = 2; def choice = A; override def name = "☪" }
+case object R2B extends RowChoice { def row = 2; def choice = B; override def name = "✝" }
+case object R2C extends RowChoice { def row = 2; def choice = C; override def name = "✡" }
+case object R2D extends RowChoice { def row = 2; def choice = D; override def name = "✡" }
+case object R2E extends RowChoice { def row = 2; def choice = E; override def name = "☮" }
+case object R2F extends RowChoice { def row = 2; def choice = F; override def name = "☭" }
 
-case object R3A extends RowChoice { def row = 3; def choice = A }
-case object R3B extends RowChoice { def row = 3; def choice = B }
-case object R3C extends RowChoice { def row = 3; def choice = C }
-case object R3D extends RowChoice { def row = 3; def choice = D }
-case object R3E extends RowChoice { def row = 3; def choice = E }
-case object R3F extends RowChoice { def row = 3; def choice = F }
+case object R3A extends RowChoice { def row = 3; def choice = A; override def name = "☾" }
+case object R3B extends RowChoice { def row = 3; def choice = B; override def name = "☃" }
+case object R3C extends RowChoice { def row = 3; def choice = C; override def name = "☁" }
+case object R3D extends RowChoice { def row = 3; def choice = D; override def name = "☂" }
+case object R3E extends RowChoice { def row = 3; def choice = E; override def name = "☀" }
+case object R3F extends RowChoice { def row = 3; def choice = F; override def name = "⚡" }
 
-case object R4A extends RowChoice { def row = 4; def choice = A }
-case object R4B extends RowChoice { def row = 4; def choice = B }
-case object R4C extends RowChoice { def row = 4; def choice = C }
-case object R4D extends RowChoice { def row = 4; def choice = D }
-case object R4E extends RowChoice { def row = 4; def choice = E }
-case object R4F extends RowChoice { def row = 4; def choice = F }
+case object R4A extends RowChoice { def row = 4; def choice = A; override def name = "⚀" }
+case object R4B extends RowChoice { def row = 4; def choice = B; override def name = "⚁" }
+case object R4C extends RowChoice { def row = 4; def choice = C; override def name = "⚂" }
+case object R4D extends RowChoice { def row = 4; def choice = D; override def name = "⚃" }
+case object R4E extends RowChoice { def row = 4; def choice = E; override def name = "⚄" }
+case object R4F extends RowChoice { def row = 4; def choice = F; override def name = "⚅" }
 
-case object R5A extends RowChoice { def row = 5; def choice = A }
-case object R5B extends RowChoice { def row = 5; def choice = B }
-case object R5C extends RowChoice { def row = 5; def choice = C }
-case object R5D extends RowChoice { def row = 5; def choice = D }
-case object R5E extends RowChoice { def row = 5; def choice = E }
-case object R5F extends RowChoice { def row = 5; def choice = F }
+case object R5A extends RowChoice { def row = 5; def choice = A; override def name = "♔" }
+case object R5B extends RowChoice { def row = 5; def choice = B; override def name = "♕" }
+case object R5C extends RowChoice { def row = 5; def choice = C; override def name = "♖" }
+case object R5D extends RowChoice { def row = 5; def choice = D; override def name = "♗" }
+case object R5E extends RowChoice { def row = 5; def choice = E; override def name = "♘" }
+case object R5F extends RowChoice { def row = 5; def choice = F; override def name = "♙" }
 
 
