@@ -34,3 +34,20 @@ Using CoffeeScript and LESS for javascript and CSS. Both of these let, but don't
     * logic.less is mostly for nesting rules that hide/show options
     * style.less is for making everything purdy
 * the board is 1-indexed. sorry.
+
+## TODOs
+### JavaScript front end 
+* Undo: in every doAnswer and dismissChoice, push the inverse op onto the undo stack
+* Autoanswer last option in cell
+* Make 'How to Play' a modal/popup div, show on first visit via cookie, expanded examples, summon via button
+* Unhide dismissed clues
+* Timer
+* You've won detection
+* Mistake detection
+
+### Serverside
+* Board hashing/serialization
+* Hint generation
+* Leader board / stats persistence
+
+
