@@ -40,7 +40,6 @@ Using CoffeeScript and LESS for javascript and CSS. Both of these let, but don't
 * Undo: in every doAnswer and dismissChoice, push the inverse op onto the undo stack
 * Autoanswer last option in cell
 * Make 'How to Play' a modal/popup div, show on first visit via cookie, expanded examples, summon via button
-* Unhide dismissed clues
 * Timer
 * You've won detection
 * Mistake detection
