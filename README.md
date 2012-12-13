@@ -2,7 +2,7 @@
 
 This is based on an old game I played in the '90s called Sherlock. I mostly wrote it to play with the Solver/Desolver code.
 
-## Prereqisits
+## Prerequisites
 Play 2.1 (which is currently in RC1 and has to be installed by hand)
 
 ### Installing Play 2.1-RC1
