@@ -85,8 +85,11 @@ checkClues = (c) -> true
 prepickedAnswer = (c) ->
   $(c.cellId).is('.locked')
 
-dismissClue = (c) ->
-  c.hide()
+toggleDismissClue = (c) ->
+  if $(c).hasClass "dismissed"
+    $(c).removeClass "dismissed"
+  else
+    $(c).addClass "dismissed"
   false
 
 getChoice = (p) ->
@@ -102,14 +105,14 @@ jQuery ->
       .bind('tap', () -> routeUnpick getChoice $ this)
       .bind('hold', () -> routePick getChoice $ this)
 
-    $(".clue").hammer().bind 'swipe', () -> dismissClue $ this
+    $(".clue").hammer().bind 'swipe', () -> toggleDismissClue $ this
   else
     $("body").addClass("desktop")
     $(".choice")
       .bind('contextmenu', () -> routeUnpick getChoice $ this)
       .bind('click', () -> routePick getChoice $ this)
 
-    $(".clue").hammer().bind 'contextmenu', () -> dismissClue $ this
+    $(".clue").hammer().bind 'contextmenu', () -> toggleDismissClue $ this
 
 
   for choice in initialAnswers
