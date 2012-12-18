@@ -41,8 +41,11 @@ Using CoffeeScript and LESS for javascript and CSS. Both of these let, but don't
 * Autoanswer last option in cell
 * Make 'How to Play' a modal/popup div, show on first visit via cookie, expanded examples, summon via button
 * Timer
-* You've won detection
-* Mistake detection
+* You've won / Mistake detection
+    - clue should auto-hide if ALL possible combinations (or selected combination) of left and right conform to arrow
+    - clue should highlight red if ALL possible combinations (or selected combination) of left and right are against arrow
+    - clue will otherwise stay normal
+    - in case of mistake: left and right in game board will highlight red
 
 ### Serverside
 * Board hashing/serialization
