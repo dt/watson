@@ -17,19 +17,10 @@
     </div>
   }
   </div>
-    <div id="vclues">
-  @g.sameCol.map { c =>
-    <div class="samecol clue" id="@c.id">
-      <span class="r@c.above.row">@c.above.name</span>
-      <span class="relation">↓</span>
-      <span class="r@c.below.row">@c.below.name</span>
-    </div>
-  }
-  <div style="clear:both;"></div>
-  </div>
   <div style="clear:both;"></div>
 </div>
-  <div id="hclues">
+  <div id="hclues" class="clues">
+	<div class="title">Across</div>
   @g.adjCol.map { c =>
     <div class="adjCol clue" id="@c.id">
       <span class="r@c.x.row">@c.x.name</span>
@@ -44,16 +35,18 @@
       <span class="r@c.right.row">@c.right.name</span>
     </div>
   }
-  <div id="howtoplay">
-    <h1>How to Play</h1>
-    <ul>
-      <li class="desktoponly">Click to pick. Rightclick to dismiss.</li>
-      <li class="touchonly">Tap to dismiss. Tap &amp; Hold to select.</li>
-      <li><strong>x ↔ y</strong> means <em><strong>x</strong> in a column next to <strong>y</strong></em></li>
-      <li><strong>x → y</strong> means <em><strong>y</strong> in some column right of <strong>x</strong></em></li>
-      <li><strong>x ↓ y</strong> means <em><strong>x</strong> above <strong>y</strong> in the same column</em></li>
-    </ul>
+  
   </div>
+    <div id="vclues" class="clues">
+	  <div class="title">Down</div>
+  @g.sameCol.map { c =>
+    <div class="samecol clue" id="@c.id">
+      <span class="r@c.above.row">@c.above.name</span>
+      <span class="relation">↓</span>
+      <span class="r@c.below.row">@c.below.name</span>
+    </div>
+  }
+  <div style="clear:both;"></div>
   </div>
 
   <script>

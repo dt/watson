@@ -20,7 +20,7 @@ routePick = (c) ->
 
 routeUnpick = (c) ->
   if picked[c.rowPick] == c.cellId
-      unpickAnswer(c)
+    unpickAnswer(c)
   else if picked[c.rowPick]
     dupeDismiss(c)
   else if dismissedChoices[c.id]
@@ -95,6 +95,31 @@ toggleDismissClue = (c) ->
 getChoice = (p) ->
   new Choice(p.parent().data('row'), p.parent().data('col'), p.data('pick'))
 
+resetBoard = () ->
+  for pick of picked
+    pickId = picked[pick] + "-" + pick[3]
+    c = getChoice $(pickId)
+    unless prepickedAnswer(c) 
+      routeUnpick(c)
+
+
+openModal = (p) ->
+  modal = p.data('modal')
+  if $("##{modal}-modal").length > 0
+    $("##{modal}-modal").show()
+  else
+    $.ajax '/modal/' + modal,
+      type: 'GET'
+      dataType: 'html' 
+      success: (data) -> 
+        $('body').append data 
+        if Modernizr.touch
+          $("##{modal}-modal").find(".close").hammer().bind 'click', () ->  $("##{modal}-modal").hide()
+        else
+          $("##{modal}-modal").find(".close").bind('click', () ->  $("##{modal}-modal").hide())
+        true
+  true			
+					
 jQuery ->
   if Modernizr.touch
     $("body").addClass("touch")
@@ -106,6 +131,8 @@ jQuery ->
       .bind('hold', () -> routePick getChoice $ this)
 
     $(".clue").hammer().bind 'swipe', () -> toggleDismissClue $ this
+    $(".menu li a").hammer().bind 'tap', () -> openModal $ this
+    $("#reset").hammer().bind 'click', () -> resetBoard $
   else
     $("body").addClass("desktop")
     $(".choice")
@@ -113,7 +140,8 @@ jQuery ->
       .bind('click', () -> routePick getChoice $ this)
 
     $(".clue").hammer().bind 'contextmenu', () -> toggleDismissClue $ this
-
+    $(".menu li a").bind('click', () -> openModal $ this)
+    $("#reset").bind('click', () -> resetBoard $)
 
   for choice in initialAnswers
     do (choice) -> doAnswer(choice).addClass('locked')
