@@ -15,4 +15,10 @@ object Application extends Controller {
       case c: ContradictionCreated => { Logger.error("original: \n" + answered.board); throw c }
     }
   }
+
+  def howto = Action {
+    Ok(views.html.howto())
+  }
+
+  def about = TODO
 }
