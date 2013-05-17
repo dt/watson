@@ -3,15 +3,12 @@
 This is based on an old game I played in the '90s called Sherlock. I mostly wrote it to play with the Solver/Desolver code.
 
 ## Prerequisites
-Play 2.1 (which is currently in RC1 and has to be installed by hand)
+Play 2.1
 
-### Installing Play 2.1-RC1
-    brew update
+### Installing Play 2.1
+OSX:
     brew install play
-    curl -O http://download.playframework.org/releases/play-2.1-RC1.zip
-    unzip play-2.1-RC1.zip
-    mv play-2.1-RC1 /usr/local/Cellar/play/2.1-RC1
-    ln -sf /usr/local/Cellar/play/2.1-RC1/play /usr/local/bin/play
+or look at [http://www.playframework.com/documentation/2.1.1/Installing]
 
 ## Running
     play run
